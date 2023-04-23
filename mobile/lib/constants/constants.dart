@@ -6,4 +6,17 @@ class CustomColors {
   static Color get appBackgroundColor => const Color(0xff71BF89);
 
   static Color get appLightGreenColor => const Color(0xff9CBDA6);
+
+  static Color get appTransluscentGreenColor => const Color(0xffDEEEE3);
+}
+
+class CustomTextStyle {
+  static TextStyle? bodyText1(BuildContext context) {
+    return Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontFamily: 'HKGrotesk',
+          fontSize: 24.0,
+          fontWeight: FontWeight.w400,
+          height: 31.27,
+        );
+  }
 }
