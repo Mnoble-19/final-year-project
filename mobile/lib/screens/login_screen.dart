@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/constants/constants.dart';
+import 'package:mobile/screens/home.dart';
 import 'package:mobile/screens/signup_screen.dart';
 import 'package:mobile/widgets/customWidgets.dart';
 
@@ -54,7 +55,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         "Welcome to",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: Colors.white.withOpacity(0.8),
-                              fontSize: 24,
                             ),
                       ),
                       RichText(
@@ -88,7 +88,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: Colors.white.withOpacity(0.8),
                               fontWeight: FontWeight.w400,
-                              fontSize: 24,
                             ),
                       ),
                       const SizedBox(height: 16.0),
@@ -110,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
               alignment: Alignment.topLeft,
               child: Text(
                 'Email Address',
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       fontWeight: FontWeight.w500,
                     ),
               ),
@@ -129,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
               alignment: Alignment.topLeft,
               child: Text(
                 'Password',
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       fontWeight: FontWeight.w500,
                     ),
               ),
@@ -153,6 +152,13 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               onPressed: () {
                 // TODO: Implement login logic
+                
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyHomePage(),
+                  ),
+                );
               },
               child: Container(
                 margin: EdgeInsets.fromLTRB(40, 0, 40, 0),

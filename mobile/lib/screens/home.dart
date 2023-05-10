@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mobile/screens/login_screen.dart';
+import 'package:mobile/screens/payment.dart';
 import 'package:mobile/widgets/customWidgets.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _currentIndex = 0;
+  final List<Widget> _screens = [
+    Placeholder(),
+    Placeholder(),
+    PaymentScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,30 +32,18 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-                //Stack
-                ),
-            Center(
-              child: Text("Buy Credits"),
-            ),
-            Container(
-              child: Text("Recent transactions"),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Transaction"),
-                Text("Balance"),
-              ],
-            ),
-          ],
-        ),
+      
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: BottomNavIcon(

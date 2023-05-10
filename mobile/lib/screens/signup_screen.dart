@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/constants/constants.dart';
+import 'package:mobile/screens/home.dart';
+import 'package:mobile/screens/login_screen.dart';
 import 'package:mobile/widgets/customWidgets.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -16,17 +18,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: CustomColors.appLightGreenColor,
       extendBodyBehindAppBar: true,
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(16, 0, 17, 0),
+      body: SafeArea(
+          child: Padding(
+        padding: EdgeInsets.fromLTRB(14, 20, 17, 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: 359,
-              height: 265,
+              width: screenWidth * 0.8,
+              height: screenHeight * 0.28,
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -54,7 +59,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         "Welcome to",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: Colors.white.withOpacity(0.8),
-                              fontSize: 24,
                             ),
                       ),
                       RichText(
@@ -88,7 +92,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: Colors.white.withOpacity(0.8),
                               fontWeight: FontWeight.w400,
-                              fontSize: 24,
                             ),
                       ),
                       const SizedBox(height: 16.0),
@@ -97,7 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 41.0),
+            const SizedBox(height: 11.0),
             const Align(
               heightFactor: 0.5,
               alignment: Alignment.topLeft,
@@ -110,9 +113,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               alignment: Alignment.topLeft,
               child: Text(
                 'Email Address',
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
+                style: Theme.of(context).textTheme.bodySmall!,
               ),
             ),
             const SizedBox(height: 19.0),
@@ -129,9 +130,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               alignment: Alignment.topLeft,
               child: Text(
                 'First Name',
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
+                style: Theme.of(context).textTheme.bodySmall!,
               ),
             ),
             const SizedBox(height: 19.0),
@@ -149,9 +148,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               alignment: Alignment.topLeft,
               child: Text(
                 'Password',
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
+                style: Theme.of(context).textTheme.bodySmall!,
               ),
             ),
             const SizedBox(height: 19.0),
@@ -172,7 +169,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               onPressed: () {
-                // TODO: Implement login logic
+                // TODO: Implement signup logic
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyHomePage(),
+                  ),
+                );
               },
               child: Container(
                 margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
@@ -185,7 +188,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(height: 11.0),
             Flexible(
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
+                    ),
+                  );
+                },
                 child: const Text(
                   'Login',
                   style: TextStyle(
@@ -196,6 +206,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ],
         ),
+      )
       ),
     );
   }
