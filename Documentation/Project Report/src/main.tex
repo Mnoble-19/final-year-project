@@ -1,0 +1,119 @@
+%! Author = mutabazinble
+%! Date = 03/11/2022
+
+% Preamble
+\documentclass[11pt]{report}
+% Packages
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage[toc,page]{appendix}
+\usepackage{subfig}
+\graphicspath{{images/}}
+
+\begin{document}
+    \begin{titlepage}
+        \begin{center}
+            \includegraphics[scale=0.25]{images/muk}
+
+            \textbf{MAKERERE UNIVERSITY}
+            \\COLLEGE OF COMPUTING AND INFORMATION TECHNOLOGY
+            \vspace{1cm}
+            \\{\textbf{ Ubiquitous Computing for Mobile Based Payments in Localised Intelligent Transportation Systems}}
+            \vspace{0.5cm}
+            \\By
+            \\CS23-4
+            \vspace{0.5cm}
+            \\{\textbf{
+                DEPARTMENT OF COMPUTER SCIENCE
+            }}
+            \vspace{0.5cm}
+            \\A Draft Project Report submitted to the School of Computing and Informatics Technology
+            For the Study Leading to a Project Proposal in Partial Fulfillment of the
+            Requirements for the Award of the Degree of Bachelor of Science in Computer Science
+            Of Makerere University
+            \vspace{0.5cm}
+
+            Supervisor
+            \vspace{0.2cm}
+            \\Mr. Ggaliwango Marvin:\dotfill
+            \vspace{0.2cm}
+            \\Date:\dotfill
+            \vspace{0.2cm}
+            \\School of Computing and Informatics Technology, Makerere University
+            \\ggaliwango.marvin@mak.ac.ug, +256-754-655-524
+            \\April, 2023
+        \end{center}
+    \end{titlepage}
+    \begin{tabularx}{1.1\textwidth} {
+        | >{\raggedright\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X
+        | >{\centering\arraybackslash}X | }
+        \hline
+        \textbf{NAME}          & \textbf{STUDENT NO.} & \textbf{REG. NO} & \textbf{SIGNATURE} \\
+        \hline
+        MUTABAZI NOBLE         & 2000705746           & 20/U/5746/PS     &                    \\
+        \hline
+        SSEMPALA BENJAMIN      & 2000701199           & 20/U/1199        &                    \\
+        \hline
+        NTSINGA ELIJAH MUKUMBI & 2000700052           & 20/U/0052        &                    \\
+        \hline
+        WANDERA EMMANUEL       & 2000705793           & 20/U/5793/PS     &                    \\
+        \hline
+    \end{tabularx}
+    \clearpage
+
+    \tableofcontents
+    \newpage
+    \begin{abstract}
+        The current system of ticketing and payment for parking at Makerere University in Kampala, Uganda, faces several challenges, such as frequent malfunction of the ticketing machines, fraud by the system employees, difficulty in locating a payment point for motorists, and hefty fines of 50000 Ugandan shillings for lost tickets. These challenges result in inconvenience, inefficiency, as well as revenue loss for both the system’s managers as well as motorists using it. To overcome these challenges, we propose a low-cost system that consists of a mobile app that enables cashless digital prepayment of the parking fees using local popular payment platforms such as MTN mobile money. The app interacts with an embedded microcontroller at the gate that scans the QR codes and grants access. We describe the design and implementation of the app and the microcontrollerr. We also examine the benefits and shortcomings of our system. We argue that our system offers a more convenient, efficient, and transparent way of managing toll payments in the university context.
+
+        \textbf{Keywords}: Intelligent Transportation Systems, Ubiquitous Computing, Mobile Based Payments, Smart Cities
+
+    \end{abstract}
+
+
+    \chapter{Introduction}\label{ch:introduction}
+
+
+    \section{Background and motivation}\label{sec:background-and-motivation}
+    \input{background-and-motivation}
+
+
+    \section{Problem Statement}\label{sec:problem-statement}
+    \input{problem-statement}
+
+
+    \section{Objectives}\label{sec:objectives}
+    \input{objectives}
+
+
+    \section{Scope of the project}\label{sec:scope-of-the-project}
+    \input{scope-of-the-project}
+
+
+    \section{Significance of the project}\label{sec:significance-of-the-project}
+    \input{significance-of-the-project}
+
+
+    \chapter{Literature Review}\label{ch:literature-review}
+    \input{literature-review}
+
+
+    \chapter{Methodology}\label{ch:methodology}
+    \input{methodology}
+
+
+    \chapter{System Analysis and Design}\label{ch:system-analysis-and-design}
+    \input{system-analysis-and-design}
+
+
+    \chapter{Presentation of Results}\label{ch:results-presentation}
+    \input{results-presentation}
+
+    \chapter{Outcomes}\label{ch:outcomes}
+    \input{outcomes}
+\end{document}
+
