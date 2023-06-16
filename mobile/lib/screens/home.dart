@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mobile/screens/login_screen.dart';
+import 'package:mobile/screens/QRcode_screen.dart';
 import 'package:mobile/screens/payment.dart';
 import 'package:mobile/widgets/customWidgets.dart';
 
@@ -15,23 +15,23 @@ class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
     Placeholder(),
-    Placeholder(),
+    QRCodeScreen(),
     PaymentScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("Hello User"),
-            SvgPicture.asset(
-              'assets/profile.svg',
-            ),
-          ],
-        ),
-      ),
+      // appBar: AppBar(
+      //   title: Row(
+      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //     children: [
+      //       Text("Hello User"),
+      //       SvgPicture.asset(
+      //         'assets/profile.svg',
+      //       ),
+      //     ],
+      //   ),
+      // ),
       
       body: IndexedStack(
         index: _currentIndex,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/constants/constants.dart';
-import 'package:mobile/constants/constants.dart';
+
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/constants/constants.dart';
 import 'package:mobile/screens/home.dart';
 import 'package:mobile/screens/signup_screen.dart';
-import 'package:mobile/widgets/customWidgets.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -101,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
               heightFactor: 0.5,
               alignment: Alignment.topLeft,
               child: Text(
-                'LOGIN',
+                'Log in',
               ),
             ),
             const SizedBox(height: 24.0),
@@ -164,7 +164,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(91, 18, 91, 17),
-                  child: Text('Login'),
+                  child: Text(
+                    'Login',
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                  ),
                 ),
               ),
             ),
@@ -179,11 +185,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   );
                 },
-                child: const Text(
+                child: Text(
                   'Sign up',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
                 ),
               ),
             ),
