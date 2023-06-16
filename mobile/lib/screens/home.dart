@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mobile/screens/home_tab.dart';
 import 'package:mobile/screens/login_screen.dart';
 import 'package:mobile/screens/payment.dart';
 import 'package:mobile/widgets/customWidgets.dart';
@@ -14,7 +15,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
-    Placeholder(),
+    HomeTab(),
     Placeholder(),
     PaymentScreen(),
   ];

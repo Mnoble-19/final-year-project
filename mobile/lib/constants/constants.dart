@@ -20,3 +20,38 @@ class CustomTextStyle {
         );
   }
 }
+
+TextStyle greetingTextStyle = TextStyle(
+  color: Colors.black.withOpacity(0.8),
+  fontWeight: FontWeight.bold,
+  fontSize: 24.0,
+
+);
+
+TextStyle largeTextStyle = TextStyle(
+  color: Colors.black.withOpacity(0.8),
+  fontWeight: FontWeight.w500,
+  fontSize: 100.0,
+
+);
+
+TextStyle regularBodyTextStyle = TextStyle(
+  color: Colors.black.withOpacity(0.8),
+  fontWeight: FontWeight.normal,
+  fontSize: 16.0,
+
+);
+
+TextStyle mediumBodyTextStyle = TextStyle(
+  color: Colors.black.withOpacity(0.8),
+  fontWeight: FontWeight.w500,
+  fontSize: 16.0,
+
+);
+
+TextStyle boldBodyTextStyle = TextStyle(
+  color: Colors.black.withOpacity(0.8),
+  fontWeight: FontWeight.bold,
+  fontSize: 16.0,
+
+);
