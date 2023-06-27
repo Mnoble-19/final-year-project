@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:mobile/constants/constants.dart';
+import 'package:mobile/utilities/payments.dart';
 import 'package:mobile/widgets/credit_balance_widget.dart';
 import 'package:mobile/widgets/custom_button.dart';
 import 'package:mobile/widgets/transaction_widget.dart';
@@ -22,7 +23,9 @@ class HomeTab extends StatelessWidget {
                 const SizedBox(
                   height: 10.0,
                 ),
-                CustomButton(label: "Buy Credits"),
+                CustomButton(label: "Buy Credits", onTap: (){
+                  collectPayment();
+                },),
                 const SizedBox(
                   height: 20.0,
                 ),

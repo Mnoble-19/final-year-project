@@ -4,10 +4,12 @@ import 'package:mobile/constants/constants.dart';
 class CustomButton extends StatelessWidget {
 
   String label;
+  Function onTap;
 
   CustomButton({
     super.key,
     required this.label,
+    required this.onTap
 });
 
   @override
@@ -19,7 +21,7 @@ class CustomButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        // TODO: Implement Payment logic
+        onTap();
       },
       child: Container(
         width: double.infinity,
