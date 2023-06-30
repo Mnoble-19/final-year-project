@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "970599282157",
+    "project_id": "etolls-8d93b",
+    "storage_bucket": "etolls-8d93b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970599282157:android:89566243a6be29249323e4",
+        "android_client_info": {
+          "package_name": "com.example.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970599282157-9o8gdhoek8crvk0ep9cmrjmla0s0qn2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEkOT7k5AzWGGbBYcdbzSWcdQkyzi6Lno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970599282157-9o8gdhoek8crvk0ep9cmrjmla0s0qn2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
