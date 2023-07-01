@@ -1,5 +1,5 @@
 \section{Overview of the System}
-This chapter consists of the general introduction, the study of the existing system, requirement specification and system design. The study of the existing system includes main findings from interviews, requirements specifications include functional, non-functional requirements, software and hardware requirements. System design comprises modelling the solution from the findings.
+This chapter consists of the general introduction, the study of the existing system, requirement specification and system design. The study of the existing system includes main findings from interviews, requirements specifications include functional, non-functional requirements, software and hardware requirements. System design comprises modelling the solution basing on findings from the interviews.
 
 
 \section{System study}
@@ -15,18 +15,19 @@ Our case study as previously mentioned was the Makerere University Parking Syste
 \subsection{Data Analysis}
 Below is a summary of some of the main findings from the survey we conducted.
 
-\subsubsection{Breakdown of the intended users of the existing and proposed system}
+\subsubsection{Breakdown of the users of the existing and proposed system}
 Our analysis found that the main users of the system are fall into two categories, each with its own subcategories. These are:
 \begin{itemize}
     \item Frequent users: This comprises users students, lecturers and university staff who are the main users of the system.
     \item Occasional users: This comprises visitors to the university or ordinary passers-by who wish to use the system quickly perhaps a shortcut to avoid traffic, or a brief visit to the university, among other reasons
 \end{itemize}
-The system therefore ought to have a way to discern between these two categories, and frequent users are not expected to make payments while non-frequent users do
+The system therefore ought to have a way to discern between these two categories, and frequent users are not expected to make payments every time they use the system. To achieve this, registered users can register with their student or university credentials, and the system can then verify their status and allow them to use the system without making payments. The occasional users can then be charged for each use of the system.
+
 
 
 \begin{figure}[h]
-    \hspace{-3cm}
-    \includegraphics[scale = 0.7]{images/users}
+    \hspace{-1cm}
+    \includegraphics[scale = 0.5]{images/users}
     \caption{Breakdown of intended users of the system}
 \end{figure}
 
@@ -38,8 +39,8 @@ We were also able to analyse the frequency of usage of the current system. We fo
 
 \begin{figure}[h]
     \begin{center}
-        \hspace{-7cm}
-        \includegraphics[scale = 0.8]{images/usage}
+        \hspace{-1cm}
+        \includegraphics[scale = 0.5]{images/usage}
         \caption{Respondents' frequency of usage of the current system}
     \end{center}
 \end{figure}
@@ -52,7 +53,7 @@ We believe one of the benefits of our proposed system is that we leverage local 
 
 \begin{figure}[h]
     \begin{center}
-        \hspace{-3cm}
+        \hspace{-1cm}
         \includegraphics[scale = 0.5]{images/mob-mon}
         \caption{Respondents' familiarity with mobile money platforms on a scale of 1 to 5}
     \end{center}
@@ -88,6 +89,8 @@ We also sought to find out how often our respondents experienced problems such a
 \subsubsection{Opinion on the hefty fine for losing a ticket}
 The researchers also sought from the respondents their individual opinions on the hefty fine for losing a ticket. All respondents expressed dissatisfaction with the idea, justifying the need for a digital alternative of ticketing that avoid such scenarios.
 
+
+The interview guide used during the interview with the project manager as well as survery questions are attached in the appendix.
 \clearpage
 
 \subsection{Requirements Specification}
@@ -125,7 +128,7 @@ These are requirements that are not directly related to the functionality of the
 \end{itemize}
 
 \subsection{System Design}
-This section defines the physical architectural design and the logical design (showing processes, sub processes and data flows to/from external entities) and database design of the system required to satisfy the specified requirements.
+This section defines the physical architectural design and the logical design (showing processes, sub processes and entties)  of the system required to satisfy the specified requirements.
 
 \subsubsection{Architectural Design}
 An architecture diagram is a representation of elements that comprise a given system\cite{tilley2019systems}.
@@ -151,8 +154,8 @@ A use case diagram is a graphical representation of a given user's possible inte
 Below is a use case diagram for our proposed system
 \begin{figure}[h]
     \begin{center}
-        \hspace{-2cm}
-        \includegraphics[scale = 0.6]{images/use case diagram}
+        \hspace{-0.6cm}
+        \includegraphics[scale = 0.45]{images/use case diagram}
         \caption{Use Case diagram for E-Tolls System}
     \end{center}
 \end{figure}
@@ -163,7 +166,7 @@ Below is a use case diagram for our proposed system
 An entity relationship diagram (ERD), also known as an entity relationship model, is a graphical representation that depicts relationships among people, objects, places, concepts or events within a system. The diagram below shows the entities and their relationships in our system\cite{bagui2012database}.
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[scale = 0.6]{images/erd}
+        \includegraphics[scale = 0.45]{images/erd}
         \caption{Entity Relationship Diagram for E-Tolls System}
     \end{center}
 \end{figure}
@@ -182,7 +185,7 @@ The flow chart represents the dynamic behavior of the objects and classes that h
 \clearpage
 
 \subsubsection{Context Diagram}
-A context diagram is a visual representation of how external elements interact with a system, such as a project or a software system. It clarifies the interfaces and boundaries of the project or process at hand, and shows the project’s interactions with other systems and users\cite{wysocki2006effective}.
+A context diagram provides a visual representation of how external elements interact with a system, such as a project or a software system. It clarifies the interfaces and boundaries of the project or process at hand, and shows the project’s interactions with other systems and users\cite{wysocki2006effective}.
 
 \begin{figure}[h]
     \begin{center}

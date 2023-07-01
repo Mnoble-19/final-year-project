@@ -1,8 +1,19 @@
 \section{Introduction}
-This chapter discusses the challenges encountered during the implementation of the project, and the limitations of the current project and possible future works.
+This chapter discusses the challenges encountered during the implementation of the project, its current limitations and possible future works.
 
 
-\section{Challenges}
+\section{Limitations and Future Works}
+The system currently does not account for some scenarios such as the following:
+\begin{itemize}
+    \item Cases where there is no internet connection: This is especially as the ESP32 requires an internet conncetion to verify the payment status of the user.
+    \item Non-smartphone users: The system currently only accounts for users with smartphones with iOS and Android Operating Systems. There is need to extend the system to also cater for non-smartphone users.
+    \item The developed system is only limited to a demonstration stage, and no real-world implementation with real toll gate barriers and equipment has been done.
+\end{itemize}
+
+Future works on the project can be done to handle the scenarios listed above. The project if built in a real world setting,  can also be scaled to various places such as malls and hospitals.
+
+
+\section{Other Challenges}
 The researchers encountered a variety of challenges during the implementation of the project. These challenges are discussed below.
 
 \begin{itemize}
@@ -12,22 +23,15 @@ The researchers encountered a variety of challenges during the implementation of
 \end{itemize}
 
 
-\section{Project Gaps and Future Works}
-Currently, implementation of the project is limited to the university scope and only accounts for users with smartphones with iOS and Android Operating Systems.
-
-Additionally, the researchers were limited to building a demonstration of the project using a servo motor and not a real-world gate. There is a need for a further study where the low-cost esp32 cameras are used at a real world toll / parking gate.
-
-This project can also easily be scaled to various places such as malls and hospitals, and extended to account for non-smartphone users.
-
-
 \section{Conclusion}
-  In conclusion, the research's primary objective was to a great extent. An initiative of this nature is worth investing in and taking to the next level of having it publicly available as it would address so many shortcomings in the system currently in place that would benefit various groups in the Makerere University community from students, lecturers and other staff while also generating revenue for the university.
+In conclusion, the research's primary objective was to a great extent. An initiative of this nature is worth investing in and taking to the next level of having it publicly available as it would address so many shortcomings in the system currently in place that would benefit various groups in the Makerere University community from students, lecturers and other staff while also generating revenue for the university.
 
 
 \clearpage
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 \begin{appendices}
+    The source code for the system and Latex files for this report can be found \href{https://github.com/Mnoble-19/final-year-project}\textbf{{here}}
     \textbf{Interview Questions: Motorist}
     \begin{itemize}
         \item What are some of the challenges you have faced using Makerere's toll gates?
