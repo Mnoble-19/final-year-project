@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
 
 import 'package:mobile/constants/constants.dart';
-import 'package:mobile/screens/home.dart';
 import 'package:mobile/screens/login_screen.dart';
 import 'package:mobile/services/authService.dart';
+import 'package:mobile/screens/home.dart';
 
 
 
@@ -112,8 +111,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               ),
                             ],
                           ),
-                        )
-                    ),
+                        )),
                   ),
                 ),
                 const SizedBox(height: 11.0),
@@ -140,6 +138,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     fillColor: CustomColors.appTransluscentGreenColor,
                     border: const OutlineInputBorder(),
                   ),
+                  keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter an email address';
@@ -167,6 +166,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     if (value!.isEmpty) {
                       return 'Please enter a name!';
                     }
+                    return null;
                   },
                   decoration: InputDecoration(
                     filled: true,
@@ -205,20 +205,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       CustomColors.appDarkGreenColor,
                     ),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       String email = _emailController.text;
                       String password = _passwordController.text;
                       String name = _nameController.text;
-                      String userID = generateUserID();
 
-                      signup(email, name, password);
+                      bool signedUp = await signup(email, name, password);
+                      if (signedUp) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const MyHomePage(),
                         ),
                       );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Sign up failed!'),
+                          ),
+                        );
+                      }
                     }
                   },
                   child: Container(
@@ -261,9 +268,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
-}
-
-String generateUserID() {
-  var uuid = const Uuid();
-  return uuid.v4();
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/constants/constants.dart';
 import 'package:mobile/screens/home.dart';
 import 'package:mobile/screens/signup_screen.dart';
+import 'package:mobile/services/authService.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -141,6 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     fillColor: CustomColors.appTransluscentGreenColor,
                     border: OutlineInputBorder(),
                   ),
+                  keyboardType: TextInputType.emailAddress,
                 ),
                 const SizedBox(height: 16.0),
                 Align(
@@ -175,18 +177,26 @@ class _LoginScreenState extends State<LoginScreen> {
                       CustomColors.appDarkGreenColor,
                     ),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     
                     if (_formKey.currentState!.validate()) {
                       String email = _emailController.text;
                       String password = _passwordController.text;
-                      // login(email, password);
-                      Navigator.push(
+                      bool loggedIn = await login(email, password);
+                      if (loggedIn) {
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const MyHomePage(),
                         ),
                       );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Invalid email or password'),
+                          ),
+                        );
+                      }
                     }
                   },
                   child: Container(
