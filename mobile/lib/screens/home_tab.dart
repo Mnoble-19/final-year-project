@@ -24,7 +24,8 @@ class HomeTab extends StatelessWidget {
                   height: 10.0,
                 ),
                 CustomButton(label: "Buy Credits", onTap: (){
-                  collectPayment();
+                    //navigate to payment screen
+                    // collectPayment();
                 },),
                 const SizedBox(
                   height: 20.0,

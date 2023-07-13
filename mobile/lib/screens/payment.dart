@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/constants/constants.dart';
-
+import 'package:flutter/services.dart';
+import 'package:mobile/utilities/payments.dart';
+import 'package:mobile/widgets/custom_button.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({Key? key}) : super(key: key);
@@ -12,11 +14,13 @@ class PaymentScreen extends StatefulWidget {
 class _PaymentScreenState extends State<PaymentScreen> {
   final TextEditingController _amountController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  double credits = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.fromLTRB(16, 67, 17, 0),
+        padding: EdgeInsets.fromLTRB(16, 30, 17, 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,6 +31,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             SizedBox(height: 11),
             TextFormField(
               controller: _amountController,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               decoration: InputDecoration(
                 filled: true,
                 fillColor: CustomColors.appTransluscentGreenColor,
@@ -40,7 +45,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: '0',
+                      text: '$credits',
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Colors.black.withOpacity(0.8),
                             fontSize: 100,
@@ -75,23 +80,34 @@ class _PaymentScreenState extends State<PaymentScreen> {
               onPressed: () {
                 // TODO: Implement Payment logic
               },
-              child: Container(
-                width: 357,
-                height: 65,
-                margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
-                child: Center(
-                  child: Text(
-                    'Buy Credits',
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontSize: 20,
-                        ),
-                  ),
-                ),
+              child: CustomButton(
+                label: "Buy Credits",
+                onTap: () {
+                  collectPayment(credits);
+                },
               ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _amountController.addListener(_calculateCredits);
+  }
+
+  void _calculateCredits() {
+    setState(() {
+      String amountText = _amountController.text;
+      if (amountText.isNotEmpty) {
+        int amount = int.tryParse(amountText) ?? 0;
+        credits = amount / 100;
+      } else {
+        credits = 0;
+      }
+    });
   }
 }

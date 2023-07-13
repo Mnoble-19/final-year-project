@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/screens/QRcode_screen.dart';
 import 'package:mobile/screens/home_tab.dart';
+import 'package:mobile/screens/login_screen.dart';
 import 'package:mobile/screens/payment.dart';
 
 import 'package:mobile/widgets/customWidgets.dart';
@@ -27,15 +28,34 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        forceMaterialTransparency: true,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Hello $name"),
-            SvgPicture.asset(
-              'assets/profile.svg',
+            Text("Hello, $name", style: Theme.of(context).textTheme.bodyMedium),
+            PopupMenuButton<String>(
+              icon: SvgPicture.asset('assets/profile.svg'),
+              onSelected: (value) {
+                if (value == 'Profile') {
+                } else if (value == 'Logout') {
+                  _logout();
+                }
+              },
+              itemBuilder: (BuildContext context) => [
+                const PopupMenuItem<String>(
+                  value: 'Profile',
+                  child: Text('Profile'),
+                ),
+                const PopupMenuItem<String>(
+                  value: 'Logout',
+                  child: Text('Logout'),
+                ),
+              ],
             ),
           ],
         ),
+
+        
       ),
       body: IndexedStack(
         index: _currentIndex,
@@ -99,5 +119,21 @@ class _MyHomePageState extends State<MyHomePage> {
       this.name = name;
     });
     return;
+  }
+
+  Future<void> _logout() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    try {
+      await auth.signOut();
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const LoginScreen(),
+        ),
+        (route) => false,
+      );
+    } catch (e) {
+      print('Error during logout: $e');
+    }
   }
 }
