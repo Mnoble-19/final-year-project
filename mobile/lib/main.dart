@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/constants/constants.dart';
-
 import 'package:mobile/screens/login_screen.dart';
-import 'package:mobile/screens/payment.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
