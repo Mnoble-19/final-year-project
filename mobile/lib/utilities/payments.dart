@@ -53,3 +53,13 @@ Future<void> addCredits(double creditsToAdd) async {
 
   print("credits added");
 }
+
+Future<double> getAvailableCredits() async {
+  final user = FirebaseAuth.instance.currentUser;
+  final userRef = FirebaseFirestore.instance.collection('users').doc(user!.uid);
+
+  final snapshot = await userRef.get();
+  final currentCredits = snapshot.data()?['credits'] ?? 0;
+
+  return currentCredits;
+}
