@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/widgets/transaction_widget.dart';
-import 'package:provider/provider.dart';
+import 'package:Etolls/widgets/transaction_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomeDashboardProvider extends ChangeNotifier {
