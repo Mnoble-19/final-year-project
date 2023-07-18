@@ -61,5 +61,5 @@ Future<double> getAvailableCredits() async {
   final snapshot = await userRef.get();
   final currentCredits = snapshot.data()?['credits'] ?? 0;
 
-  return currentCredits;
+  return currentCredits.toDouble();
 }

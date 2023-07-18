@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter_svg/svg.dart';
@@ -11,21 +14,41 @@ class QRCodeScreen extends StatefulWidget {
 }
 
 class _QRCodeScreenState extends State<QRCodeScreen> {
-  String? uid;
+  String qrData = '';
 
   @override
   void initState() {
     super.initState();
-    getUserUID();
+    getUserData();
   }
 
-  Future<void> getUserUID() async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    final user = auth.currentUser;
-    if (user != null) {
+  Future<void> getUserData() async {
+    try {
+      String uid = '';
+      bool isStudent = false;
+      FirebaseAuth auth = FirebaseAuth.instance;
+      final user = auth.currentUser;
+      if (user != null) {
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(user.uid)
+            .get()
+            .then((DocumentSnapshot documentSnapshot) {
+          if (documentSnapshot.exists) {
+            uid = user.uid;
+            isStudent = (documentSnapshot.data()
+                    as Map<String, dynamic>)['isStudent'] ??
+                false;
+          }
+        });
+      }
+      final data = {'uid': uid, 'isStudent': isStudent};
+      final jsonData = jsonEncode(data);
       setState(() {
-        uid = user.uid;
+        qrData = jsonData;
       });
+    } catch (err) {
+      print("Error in QrCode Screen $err");
     }
   }
 
@@ -37,7 +60,7 @@ class _QRCodeScreenState extends State<QRCodeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             QrImageView(
-              data: uid ?? '',
+              data: qrData,
               size: 300,
               backgroundColor: Colors.white,
             ),
