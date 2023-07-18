@@ -7,6 +7,7 @@ import 'firebase_options.dart';
 import 'package:mobile/screens/home.dart';
 import 'package:mobile/constants/constants.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

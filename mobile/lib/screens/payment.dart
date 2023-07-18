@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/constants/constants.dart';
+import 'package:Etolls/constants/constants.dart'; // Update this line
 import 'package:flutter/services.dart';
-import 'package:mobile/utilities/payments.dart';
-import 'package:mobile/widgets/custom_button.dart';
+import 'package:Etolls/utilities/payments.dart'; // Update this line
+import 'package:Etolls/widgets/custom_button.dart'; // Update this line
+
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({Key? key}) : super(key: key);

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:mobile/constants/constants.dart';
-import 'package:mobile/screens/login_screen.dart';
-import 'package:mobile/services/authService.dart';
-import 'package:mobile/screens/home.dart';
-import 'package:mobile/widgets/customWidgets.dart';
-
+import 'package:Etolls/constants/constants.dart'; // Update this line
+import 'package:Etolls/screens/login_screen.dart'; // Update this line
+import 'package:Etolls/services/authService.dart'; // Update this line
+import 'package:Etolls/screens/home.dart'; // Update this line
+import 'package:Etolls/widgets/customWidgets.dart'; // Update this line
 
 
 class SignUpScreen extends StatefulWidget {

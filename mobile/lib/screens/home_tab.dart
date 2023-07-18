@@ -1,15 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
-import 'package:mobile/constants/constants.dart';
-import 'package:mobile/provider.dart';
-import 'package:mobile/utilities/payments.dart';
-import 'package:mobile/widgets/credit_balance_widget.dart';
-import 'package:mobile/widgets/custom_button.dart';
-import 'package:mobile/widgets/transaction_widget.dart';
+import 'package:Etolls/constants/constants.dart'; // Update this line
+import 'package:Etolls/provider.dart'; // Update this line
+import 'package:Etolls/utilities/payments.dart'; // Update this line
+import 'package:Etolls/widgets/credit_balance_widget.dart'; // Update this line
+import 'package:Etolls/widgets/custom_button.dart'; // Update this line
+import 'package:Etolls/widgets/transaction_widget.dart'; // Update this line
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 final User? user = auth.currentUser;
