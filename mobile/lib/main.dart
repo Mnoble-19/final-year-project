@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.green,
         ),
 
-        home: const MyHomePage(),
+        home: const LoginScreen(),
 
       ),
     );
