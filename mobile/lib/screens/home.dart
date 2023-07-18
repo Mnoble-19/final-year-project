@@ -33,6 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
         forceMaterialTransparency: true,
         title: Consumer<HomeDashboardProvider>(
           builder: (context, homeDashboardProvider, child) {
+            homeDashboardProvider.fetchUserName(userId!);
             return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

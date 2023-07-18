@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'package:mobile/constants/constants.dart';
 import 'package:mobile/provider.dart';
-import 'package:mobile/screens/home.dart';
-
-
 import 'package:mobile/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
-
-
+import 'package:mobile/screens/home.dart';
+import 'package:mobile/constants/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +43,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.green,
         ),
 
-        home: const LoginScreen(),
+        home: const MyHomePage(),
 
       ),
     );

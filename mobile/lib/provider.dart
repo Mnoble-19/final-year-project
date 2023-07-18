@@ -4,13 +4,13 @@ import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomeDashboardProvider extends ChangeNotifier {
-  String userId = 'user0';
+  String testUserId = 'user0';
   String userName = 'user';
   String availableCredits = "0";
   List<TransactionWidget> transactionsList = [];
 
   // method to fetch the user's name
-  Future<void> fetchUserName() async {
+  Future<void> fetchUserName(String userId) async {
     try {
 
       var userSnapshot =
@@ -27,7 +27,7 @@ class HomeDashboardProvider extends ChangeNotifier {
   Future<void> fetchAvailableCredits() async {
     try {
       var userSnapshot =
-      await FirebaseFirestore.instance.collection('users').doc(userId).get();
+      await FirebaseFirestore.instance.collection('users').doc(testUserId).get();
       availableCredits = userSnapshot.get('credits').toString();
 
       notifyListeners(); // Notify listeners that the state has changed
@@ -42,7 +42,7 @@ class HomeDashboardProvider extends ChangeNotifier {
     try {
 
       var querySnapshot =
-      await FirebaseFirestore.instance.collection('transactions').where('user', isEqualTo: userId).get();
+      await FirebaseFirestore.instance.collection('transactions').where('user', isEqualTo: testUserId).get();
 
       transactionsList = querySnapshot.docs.map((doc) {
         return TransactionWidget(
