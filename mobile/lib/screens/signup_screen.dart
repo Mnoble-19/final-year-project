@@ -4,6 +4,7 @@ import 'package:mobile/constants/constants.dart';
 import 'package:mobile/screens/login_screen.dart';
 import 'package:mobile/services/authService.dart';
 import 'package:mobile/screens/home.dart';
+import 'package:mobile/widgets/customWidgets.dart';
 
 
 
@@ -213,12 +214,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                       bool signedUp = await signup(email, name, password);
                       if (signedUp) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MyHomePage(),
-                        ),
-                      );
+                        Navigator.of(context).push(CustomPageRoute(
+                            builder: (context) => const MyHomePage()));
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(

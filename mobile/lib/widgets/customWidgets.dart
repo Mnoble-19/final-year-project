@@ -24,3 +24,52 @@ class BottomNavIcon extends StatelessWidget {
     );
   }
 }
+
+class CustomPageRoute<T> extends PageRoute<T> {
+  CustomPageRoute({
+    required this.builder,
+    RouteSettings? settings,
+  }) : super(settings: settings);
+
+  final WidgetBuilder builder;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 400);
+
+  @override
+  bool get opaque => false;
+
+  @override
+  bool get barrierDismissible => false;
+
+  @override
+  bool get maintainState => true;
+
+  @override
+  Color? get barrierColor => null;
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return builder(context);
+  }
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    const begin = Offset(1.0, 0.0);
+    const end = Offset.zero;
+    const curve = Curves.ease;
+
+    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+    return SlideTransition(
+      position: animation.drive(tween),
+      child: child,
+    );
+  }
+
+  @override
+  // TODO: implement barrierLabel
+  String? get barrierLabel => throw UnimplementedError();
+}

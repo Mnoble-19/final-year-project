@@ -1,13 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:mobile/screens/QRcode_screen.dart';
 import 'package:mobile/screens/home_tab.dart';
 import 'package:mobile/screens/login_screen.dart';
 import 'package:mobile/screens/payment.dart';
 
 import 'package:mobile/widgets/customWidgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -57,9 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
         
       ),
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _screens,
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 500),
+        child: _screens[_currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
