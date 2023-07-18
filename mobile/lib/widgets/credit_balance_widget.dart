@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mobile/constants/constants.dart';
 
 class CreditBalanceWidget extends StatelessWidget {
-  const CreditBalanceWidget({Key? key}) : super(key: key);
+  String availabeCredits;
+
+  CreditBalanceWidget({
+    super.key,
+    required this.availabeCredits
+});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class CreditBalanceWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("15", style: largeTextStyle, textAlign: TextAlign.left,),
+          Text(availabeCredits, style: largeTextStyle, textAlign: TextAlign.left,),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Text("Available credits", style: mediumBodyTextStyle, textAlign: TextAlign.left,),

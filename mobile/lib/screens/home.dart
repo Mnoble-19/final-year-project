@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mobile/provider.dart';
 import 'package:mobile/screens/home_tab.dart';
 import 'package:mobile/screens/login_screen.dart';
 import 'package:mobile/screens/payment.dart';
 import 'package:mobile/widgets/customWidgets.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -23,15 +25,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("Hello User"),
-            SvgPicture.asset(
-              'assets/profile.svg',
-            ),
-          ],
-        ),
+        title: Consumer<HomeDashboardProvider>(
+          builder: (context, homeDashboardProvider, child) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Hello ${homeDashboardProvider.userName}"),
+                SvgPicture.asset(
+                  'assets/profile.svg',
+                ),
+              ],
+            );
+          }),
       ),
       
       body: IndexedStack(
