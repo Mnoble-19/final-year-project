@@ -3,8 +3,8 @@ import 'package:Etolls/constants/constants.dart';
 
 class TransactionWidget extends StatelessWidget {
   final bool isTopUp;
-  final int amount;
-  final int balance;
+  final double amount;
+  final double balance;
 
   const TransactionWidget({
     super.key,

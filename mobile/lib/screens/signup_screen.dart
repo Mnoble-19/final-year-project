@@ -213,7 +213,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                       bool signedUp = await signup(email, name, password);
                       if (signedUp) {
-                        Navigator.of(context).push(CustomPageRoute(
+                        Navigator.of(context).pushReplacement(CustomPageRoute(
                             builder: (context) => const MyHomePage()));
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(

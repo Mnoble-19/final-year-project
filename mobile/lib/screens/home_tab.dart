@@ -10,6 +10,7 @@ import 'package:Etolls/widgets/transaction_widget.dart'; // Update this line
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:Etolls/screens/payment.dart';
 
 
 final FirebaseAuth auth = FirebaseAuth.instance;
@@ -47,12 +48,14 @@ class _HomeTabState extends State<HomeTab> {
                   }
 
                   final availableCredits =
-                      snapshot.data?.get('credits')?.toString() ?? '0';
+                  snapshot.data?.get('credits')?.toString() ?? '0.0';
 
                   return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
                     stream: FirebaseFirestore.instance
                         .collection('transactions')
-                        .where('user', isEqualTo: userId)
+                    .where('user', isEqualTo: userId)
+                    .orderBy('date', descending: true)
+                    .orderBy('amount', descending: true)
                         .snapshots(),
                     builder: (context, transactionsSnapshot) {
                       if (transactionsSnapshot.connectionState ==
@@ -70,8 +73,9 @@ class _HomeTabState extends State<HomeTab> {
                       // Convert the documents in the query snapshot to TransactionWidget objects
                       List<TransactionWidget> transactionsList = transactionDocs.map((doc) {
                         final isTopUp = doc['type'] == 'credit';
-                        final amount = doc['amount'] ?? 0;
-                        final balance = doc['balance'] ?? 0;
+                    final amount = (doc['amount'] ?? 0.0).toDouble();
+                    final balance = (doc['balance'] ?? 0.0).toDouble();
+
 
                         return TransactionWidget(
                           isTopUp: isTopUp,
@@ -79,6 +83,7 @@ class _HomeTabState extends State<HomeTab> {
                           balance: balance,
                         );
                       }).toList();
+                      
 
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,7 +97,12 @@ class _HomeTabState extends State<HomeTab> {
                           CustomButton(
                             label: "Buy Credits",
                             onTap: () {
-                              collectPayment();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PaymentScreen(),
+                            ),
+                          );
                             },
                           ),
                           const SizedBox(

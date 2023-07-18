@@ -5,6 +5,7 @@ import 'package:Etolls/utilities/payments.dart'; // Update this line
 import 'package:Etolls/widgets/custom_button.dart'; // Update this line
 
 
+
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({Key? key}) : super(key: key);
 
@@ -83,8 +84,35 @@ class _PaymentScreenState extends State<PaymentScreen> {
               },
               child: CustomButton(
                 label: "Buy Credits",
-                onTap: () {
-                  collectPayment();
+                onTap: () async {
+                  if (_amountController.text.isEmpty|| _phoneController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Please enter a valid amount'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                    return;
+                  }
+                  bool addedCredits = await collectPayment(credits);
+                  if (addedCredits) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Credits added successfully'),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+
+                    _amountController.clear();
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Failed adding Credits'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+
                 },
               ),
             ),

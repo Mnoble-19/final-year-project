@@ -185,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       String password = _passwordController.text;
                       bool loggedIn = await login(email, password);
                       if (loggedIn) {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const MyHomePage(),
@@ -203,7 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Container(
                     margin: EdgeInsets.fromLTRB(40, 0, 40, 0),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(91, 18, 91, 17),
+                      padding: EdgeInsets.fromLTRB(80, 18, 80, 17),
                       child: Text(
                         'Login',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
