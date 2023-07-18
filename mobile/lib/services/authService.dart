@@ -21,6 +21,7 @@ Future<bool> signup(String email, String name, String password) async {
       'name': name,
       'email': email,
       'isStudent': isStudent,
+      'credits': '10'
     });
 
     return true;

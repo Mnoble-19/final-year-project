@@ -2,13 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:mobile/provider.dart';
 import 'package:mobile/screens/QRcode_screen.dart';
 import 'package:mobile/screens/home_tab.dart';
 import 'package:mobile/screens/login_screen.dart';
 import 'package:mobile/screens/payment.dart';
 
 import 'package:mobile/widgets/customWidgets.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -30,10 +31,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: Row(
+        title: Consumer<HomeDashboardProvider>(
+          builder: (context, homeDashboardProvider, child) {
+            homeDashboardProvider.fetchUserName(userId!);
+            return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Hello, $name", style: Theme.of(context).textTheme.bodyMedium),
+            Text("Hello, ${homeDashboardProvider.userName}", style: Theme.of(context).textTheme.bodyMedium),
             PopupMenuButton<String>(
               icon: SvgPicture.asset('assets/profile.svg'),
               onSelected: (value) {
@@ -54,13 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ],
-        ),
-
-        
+        );
+          }),
       ),
-      body: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 500),
-        child: _screens[_currentIndex],
+      
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

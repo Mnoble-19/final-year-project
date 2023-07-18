@@ -83,7 +83,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               child: CustomButton(
                 label: "Buy Credits",
                 onTap: () {
-                  collectPayment(credits);
+                  collectPayment();
                 },
               ),
             ),
