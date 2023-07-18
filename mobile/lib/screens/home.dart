@@ -30,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: null,
         forceMaterialTransparency: true,
         title: Consumer<HomeDashboardProvider>(
           builder: (context, homeDashboardProvider, child) {
