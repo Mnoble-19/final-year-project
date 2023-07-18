@@ -22,115 +22,115 @@ class _HomeTabState extends State<HomeTab> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Consumer<HomeDashboardProvider>(
-              builder: (context, homeDashboardProvider, child) {
-            return StreamBuilder<DocumentSnapshot>(
-              stream: FirebaseFirestore.instance
-                  .collection('users')
-                  .doc(homeDashboardProvider.userId)
-                  .snapshots(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator(); // Loading indicator while waiting for data
-                }
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Consumer<HomeDashboardProvider>(
+                  builder: (context, homeDashboardProvider, child) {
+                    return StreamBuilder<DocumentSnapshot>(
+                      stream: FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(homeDashboardProvider.userId)
+                          .snapshots(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return CircularProgressIndicator(); // Loading indicator while waiting for data
+                        }
 
-                if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
-                }
+                        if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        }
 
-                final availableCredits = snapshot.data?.get('credits')?.toString() ?? '0';
+                        final availableCredits = snapshot.data?.get('credits')?.toString() ?? '0';
 
-                return StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance
-                      .collection('transactions')
-                      .where('user', isEqualTo: homeDashboardProvider.userId)
-                      .snapshots(),
-                  builder: (context, transactionsSnapshot) {
-                    if (transactionsSnapshot.connectionState == ConnectionState.waiting) {
-                      return CircularProgressIndicator(); // Loading indicator while waiting for data
-                    }
+                        return StreamBuilder<QuerySnapshot>(
+                          stream: FirebaseFirestore.instance
+                              .collection('transactions')
+                              .where('user', isEqualTo: homeDashboardProvider.userId)
+                              .snapshots(),
+                          builder: (context, transactionsSnapshot) {
+                            if (transactionsSnapshot.connectionState == ConnectionState.waiting) {
+                              return CircularProgressIndicator(); // Loading indicator while waiting for data
+                            }
 
-                    if (transactionsSnapshot.hasError) {
-                      return Text('Error: ${transactionsSnapshot.error}');
-                    }
+                            if (transactionsSnapshot.hasError) {
+                              return Text('Error: ${transactionsSnapshot.error}');
+                            }
 
-                    // Check if data is not null before accessing it
-                    final transactionDocs = transactionsSnapshot.data?.docs ?? [];
+                            // Check if data is not null before accessing it
+                            final transactionDocs = transactionsSnapshot.data?.docs ?? [];
 
-                    // Convert the documents in the query snapshot to TransactionWidget objects
-                    List<TransactionWidget> transactionsList = transactionDocs.map((doc) {
-                      final isTopUp = doc['type'] == 'credit';
-                      final amount = doc['amount'] ?? 0;
-                      final balance = doc['balance'] ?? 0;
+                            // Convert the documents in the query snapshot to TransactionWidget objects
+                            List<TransactionWidget> transactionsList = transactionDocs.map((doc) {
+                              final isTopUp = doc['type'] == 'credit';
+                              final amount = doc['amount'] ?? 0;
+                              final balance = doc['balance'] ?? 0;
 
-                      return TransactionWidget(
-                        isTopUp: isTopUp,
-                        amount: amount,
-                        balance: balance,
-                      );
-                    }).toList();
+                              return TransactionWidget(
+                                isTopUp: isTopUp,
+                                amount: amount,
+                                balance: balance,
+                              );
+                            }).toList();
 
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CreditBalanceWidget(
-                          availabeCredits: availableCredits,
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        CustomButton(
-                          label: "Buy Credits",
-                          onTap: () {
-                            collectPayment();
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                CreditBalanceWidget(
+                                  availabeCredits: availableCredits,
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                CustomButton(
+                                  label: "Buy Credits",
+                                  onTap: () {
+                                    collectPayment();
+                                  },
+                                ),
+                                const SizedBox(
+                                  height: 20.0,
+                                ),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Recent Transactions",
+                                    style: boldBodyTextStyle,
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Transaction",
+                                      style: regularBodyTextStyle,
+                                      textAlign: TextAlign.left,
+                                    ),
+                                    Text(
+                                      "Balance",
+                                      style: regularBodyTextStyle,
+                                      textAlign: TextAlign.right,
+                                    )
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 10.0,
+                                ),
+                                ...transactionsList
+                              ],
+                            );
                           },
-                        ),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Recent Transactions",
-                            style: boldBodyTextStyle,
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Transaction",
-                              style: regularBodyTextStyle,
-                              textAlign: TextAlign.left,
-                            ),
-                            Text(
-                              "Balance",
-                              style: regularBodyTextStyle,
-                              textAlign: TextAlign.right,
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        ...transactionsList
-                      ],
-                    );
-                  },
-                );
-              },
-            )
-            ;
-          }),
-        ),
-      ),
-    ));
+                        );
+                      },
+                    )
+                    ;
+                  }),
+            ),
+          ),
+        ));
   }
 }

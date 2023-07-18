@@ -7,7 +7,7 @@ class CreditBalanceWidget extends StatelessWidget {
   CreditBalanceWidget({
     super.key,
     required this.availabeCredits
-});
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@
 %! Date = 03/11/2022
 
 % Preamble
-\documentclass[11pt]{report}
+\documentclass[14pt]{report}
 % Packages
 \usepackage{tabularx}
 \usepackage{graphicx}
@@ -10,6 +10,7 @@
 \usepackage[nottoc,notlot,notlof]{tocbibind}
 \usepackage[toc,page]{appendix}
 \usepackage{subfig}
+\usepackage{hyperref}
 \graphicspath{{images/}}
 
 \begin{document}
@@ -37,15 +38,19 @@
 
             Supervisor
             \vspace{0.2cm}
-            \\Mr. Ggaliwango Marvin:\dotfill
-            \vspace{0.2cm}
-            \\Date:\dotfill
+            \\Mr. Ggaliwango Marvin
             \vspace{0.2cm}
             \\School of Computing and Informatics Technology, Makerere University
             \\ggaliwango.marvin@mak.ac.ug, +256-754-655-524
-            \\April, 2023
+            \\June, 2023
         \end{center}
     \end{titlepage}
+
+    \newpage
+
+    \section*{Declaration}
+    \addcontentsline{toc}{section}{Acknowledgement}
+    We Group CS23-4 do hereby declare that this Report is original and has never been published and/or submitted for any other degree award to any other University before.\\
     \begin{tabularx}{1.1\textwidth} {
         | >{\raggedright\arraybackslash}X
         | >{\centering\arraybackslash}X
@@ -65,14 +70,40 @@
     \end{tabularx}
     \clearpage
 
-    \tableofcontents
-    \newpage
-    \begin{abstract}
-        The current system of ticketing and payment for parking at Makerere University in Kampala, Uganda, faces several challenges, such as frequent malfunction of the ticketing machines, fraud by the system employees, difficulty in locating a payment point for motorists, and hefty fines of 50000 Ugandan shillings for lost tickets. These challenges result in inconvenience, inefficiency, as well as revenue loss for both the system’s managers as well as motorists using it. To overcome these challenges, we propose a low-cost system that consists of a mobile app that enables cashless digital prepayment of the parking fees using local popular payment platforms such as MTN mobile money. The app interacts with an embedded microcontroller at the gate that scans the QR codes and grants access. We describe the design and implementation of the app and the microcontrollerr. We also examine the benefits and shortcomings of our system. We argue that our system offers a more convenient, efficient, and transparent way of managing toll payments in the university context.
+    \section*{Approval}
+    \addcontentsline{toc}{section}{Approval}
+    This project report has been submitted for examination with the approval of the following supervisor.\\
+    Signed: \dotfill \\
+    Date: \dotfill\\
+    \\Mr. Ggaliwango Marvin
+    \\School of Computing and Informatics Technology, Makerere University
+    \\ggaliwango.marvin@mak.ac.ug, +256-754-655-524
+    \\June, 2023
 
-        \textbf{Keywords}: Intelligent Transportation Systems, Ubiquitous Computing, Mobile Based Payments, Smart Cities
+    \clearpage
+    \section*{Dedication}
+    \addcontentsline{toc}{section}{Dedication}
+    We dedicate this report to our parents and guardians, whose unwavering and selfless support has been instrumental throughout our entire academic journey at this university.
+
+    \clearpage
+
+    \section*{Acknowledgement}
+    \addcontentsline{toc}{section}{Acknowledgement}
+    We express our deep gratitude to our project supervisor, Mr. Ggaliwango Marvin. We are sincerely thankful for his continuous guidance and assistance, which have been instrumental in overcoming some of the challenges we encountered during this demanding study.
+
+    Furthermore, we extend our special appreciation to our friends and families for their enduring support during the rigorous moments and stressful periods throughout the research project. Their understanding and encouragement have been invaluable.
+
+    We would also like to acknowledge the school for providing us with the invaluable opportunity to work as a cohesive team. This experience has not only fostered our teamwork spirit but has also enhanced our communication skills. Additionally, we extend our gratitude to each member of the group for their unwavering team spirit and solidarity, contributing to the overall success of the project.
+
+    \begin{abstract}
+        The current system of ticketing and payment for parking at Makerere University in Kampala, Uganda, faces several challenges, such as frequent malfunction of the ticketing machines, fraud by the system employees, difficulty in locating a payment point for motorists, and hefty fines of 50000 Ugandan shillings for lost tickets. These challenges result in inconvenience, inefficiency, as well as revenue loss for both the system’s managers as well as motorists using it. To overcome these challenges, we propose a low-cost secure and reliable system that consists of a mobile app that enables cashless digital prepayment of the parking fees using local popular payment platforms such as MTN mobile money. The app interacts with an embedded microcontroller at the gate that scans the QR codes and the motorist access after it verifies their payment. We describe the design and implementation of the app and the microcontroller, and examine its benefits as well as shortcomings. We argue that our system offers a more convenient, efficient, and transparent way of managing toll payments not just in the university context, but other premises with a similar payment system in place.
+
+        \textbf{Keywords}: Intelligent Transportation Systems, Ubiquitous Computing, Mobile Based Payments, QR code based
 
     \end{abstract}
+
+    \tableofcontents
+    \listoffigures
 
 
     \chapter{Introduction}\label{ch:introduction}
@@ -113,7 +144,8 @@
     \chapter{Presentation of Results}\label{ch:results-presentation}
     \input{results-presentation}
 
-    \chapter{Outcomes}\label{ch:outcomes}
+
+    \chapter{Limitations, Recommendations and Conclusion}\label{ch:outcomes}
     \input{outcomes}
 \end{document}
 

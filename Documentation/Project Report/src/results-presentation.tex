@@ -1,20 +1,51 @@
 \section{Introduction}\label{sec:introduction}
-This chapter shows screenshots of the system interface and details the programming environment , data manipulation and programming languages used in the development of the system.
+This chapter shows screenshots of the system interface, connections of the hardware equipment and other details the programming environment that was used to develop the system.
 
 \subsection{Implementing the system}
 
 \subsubsection{Programming Tools}
 The system was implemented using the following programming tools:
 \begin{itemize}
-    \item \textbf{Android Studio}: This is the official IDE for Android development. It is used in the development of the mobile application.
-    \item \textbf{Arduino IDE}: This is the official IDE for Arduino development. It is used in the development of the microcontroller code.
-    \item \textbf{Digital Ocean}: This is a cloud hosting service. It is used to host the remote server.
+    \item \textbf{Android Studio}: This is the official IDE for Android development. It was used in the development of the mobile application.
+    \item \textbf{Arduino IDE}: This is the official IDE for Arduino development. It was used in the development of the microcontroller code.
+    \item \textbf{Digital Ocean}: This is a cloud hosting service. It was used to host the remote server.
     \item \textbf{Flutter}: This is a cross-platform UI toolkit developed by Google. It is used to develop the mobile application.
+    \item \textbf{Firebase}: This is a mobile and web application development platform developed by Google. It is used to handle user authentication.
+    \item \textbf{Silicon Pay}: This is the payment gateway the researchers opted for due to its support for all local payment platforms
     \item \textbf{ESP32 Microcontroller}: This is a microcontroller developed by Espressif Systems. It is used to receive data from the mobile application and send it to the remote server.
+    \item \textbf{Servo Motor}: This consists of a DC motor, gearbox, and a control circuit. It has a simple lever that can be attached to it and used to demonstrate the opening and closing of the gate upon verification of payment.
 \end{itemize}
 
-\subsection{Sample Screenshots}
-\begin{figure}%
+\subsubsection{Embedded Systems Equipment}
+The following equipment was used in the development of the system:
+\begin{figure}[h]%
+    \centering
+    \subfloat[\centering]{{\includegraphics[scale=0.3]{images/esp1} }}%
+    \qquad
+    \subfloat[\centering]{{\includegraphics[scale=0.3]{images/esp2} }}%
+    \caption{ESP32 microntroller used to scan the user QR codes}%
+    \label{fig:equip}%
+\end{figure}
+
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[scale = 0.2]{images/servo}
+        \caption{Servo motor that's connected to the ESP32 to demonstrate the logic of the system}
+    \end{center}
+\end{figure}
+
+\clearpage
+
+\subsection{Screenshots of the mobile application in order of use}
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[scale = 0.6]{images/Home}
+        \caption{Home Screen of the mobile application}
+    \end{center}
+\end{figure}
+\clearpage
+\begin{figure}[h]%
     \centering
     \subfloat[\centering]{{\includegraphics[scale=0.3]{images/Signup} }}%
     \qquad
@@ -23,7 +54,16 @@ The system was implemented using the following programming tools:
     \label{fig:example}%
 \end{figure}
 
-\begin{figure}%
+\clearpage
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[scale = 0.6]{images/Home}
+        \caption{Home Screen of the mobile application}
+    \end{center}
+\end{figure}
+
+\clearpage
+\begin{figure}[h]%
     \centering
     \subfloat[\centering]{{\includegraphics[scale=0.3]{images/Payments} }}%
     \qquad
@@ -32,9 +72,4 @@ The system was implemented using the following programming tools:
     \label{fig:example1}%
 \end{figure}
 
-\begin{figure}
-    \begin{center}
-        \includegraphics[scale = 0.5]{images/esp32.jpeg}
-        \caption{ESP32 Microcontroller}
-    \end{center}
-\end{figure}
+\clearpage
