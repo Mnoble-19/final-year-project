@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/constants/constants.dart';
-import 'package:mobile/screens/home.dart';
-import 'package:mobile/screens/signup_screen.dart';
-import 'package:mobile/services/authService.dart';
+import 'package:Etolls/constants/constants.dart'; // Update this line
+import 'package:Etolls/screens/home.dart'; // Update this line
+import 'package:Etolls/screens/signup_screen.dart'; // Update this line
+import 'package:Etolls/services/authService.dart'; // Update this line
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
