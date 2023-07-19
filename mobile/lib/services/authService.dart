@@ -10,7 +10,7 @@ Future<bool> signup(String email, String name, String password) async {
       password: password,
     );
 
-    if (email.endsWith('@students.mak.ac.ug')) {
+    if (email.endsWith('.mak.ac.ug')) {
       isStudent = true;
     }
 

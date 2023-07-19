@@ -52,66 +52,72 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(17, 0, 0, 18),
-                    child: Flexible(
-                        flex: 2,
-                        fit: FlexFit.tight,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(0),
-                            color: CustomColors.appDarkGreenColor,
+                    child: Container(
+                      width: screenWidth * 0.8,
+                      height: screenHeight * 0.22,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(0, 3),
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                "Welcome to",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                      color: Colors.white.withOpacity(0.8),
-                                    ),
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'E',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                            color:
-                                                Colors.white.withOpacity(0.8),
-                                            fontSize: 60,
-                                          ),
-                                    ),
-                                    TextSpan(
-                                      text: '-tolls',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                            fontSize: 60,
-                                          ),
-                                    ),
-                                  ],
+                        ],
+                        borderRadius: BorderRadius.circular(0),
+                        color: CustomColors.appDarkGreenColor,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "Welcome to",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  color: Colors.white.withOpacity(0.8),
                                 ),
-                              ),
-                              Text(
-                                "Drive smart, go digital!",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                      color: Colors.white.withOpacity(0.8),
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                              ),
-                            ],
                           ),
-                        )),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'E',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                        color: Colors.white.withOpacity(0.8),
+                                        fontSize: 60,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: '-tolls',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                        fontSize: 60,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            "Drive smart, go digital!",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                          ),
+                        ],
+                      ),
+),
                   ),
                 ),
                 const SizedBox(height: 11.0),

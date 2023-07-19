@@ -85,10 +85,19 @@ class _PaymentScreenState extends State<PaymentScreen> {
               child: CustomButton(
                 label: "Buy Credits",
                 onTap: () async {
-                  if (_amountController.text.isEmpty|| _phoneController.text.isEmpty) {
+                  if (_amountController.text.isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text('Please enter a valid amount'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                    return;
+                  }
+                  if (_phoneController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Please enter a valid phone number'),
                         backgroundColor: Colors.red,
                       ),
                     );
