@@ -13,7 +13,7 @@ Our case study as previously mentioned was the Makerere University Parking Syste
 \section{System Analysis}
 
 \subsection{Data Analysis}
-Below is a summary of some of the main findings from the survey we conducted.
+The charts below provide a summary of some of the main findings from the survey we conducted.
 
 \subsubsection{Breakdown of the users of the existing and proposed system}
 Our analysis found that the main users of the system are fall into two categories, each with its own subcategories. These are:
@@ -21,27 +21,33 @@ Our analysis found that the main users of the system are fall into two categorie
     \item Frequent users: This comprises users students, lecturers and university staff who are the main users of the system.
     \item Occasional users: This comprises visitors to the university or ordinary passers-by who wish to use the system quickly perhaps a shortcut to avoid traffic, or a brief visit to the university, among other reasons
 \end{itemize}
-The system therefore ought to have a way to discern between these two categories, and frequent users are not expected to make payments every time they use the system. To achieve this, registered users can register with their student or university credentials, and the system can then verify their status and allow them to use the system without making payments. The occasional users can then be charged for each use of the system.
-
-
-
+The system therefore ought to have a way to discern between these two categories, and frequent users are not expected to make payments every time they use the system. To achieve this, we have built our system in such a way that registered users can register with their student or university credentials, and the system can then verify their status via email and allow them to use the system without making payments. The occasional users can then be charged for each use of the system.
 \begin{figure}[h]
     \hspace{-1cm}
     \includegraphics[scale = 0.5]{images/users}
     \caption{Breakdown of intended users of the system}
 \end{figure}
 
-\clearpage
-
 \subsubsection{Analysis of frequency of usage of the current system}
 We were also able to analyse the frequency of usage of the current system. We found that the majority of our respondents use the system on a daily basis, with a few using it on a weekly basis. This is expected since the main users of the system are students, lecturers and university staff who are expected to be at the university on a daily basis. The occasional users are expected to be a minority.
-
 
 \begin{figure}[h]
     \begin{center}
         \hspace{-1cm}
         \includegraphics[scale = 0.5]{images/usage}
         \caption{Respondents' frequency of usage of the current system}
+    \end{center}
+\end{figure}
+
+\subsubsection{Level of satisfaction with existing system}
+
+We also sought to find out how satisfied our respondents were with the existing system. We found that the majority of our respondents were either not satisfied or fairly satisfied with the existing system, with a few being satisfied with it. This is expected since the existing system has a number of shortcomings which we have already highlighted.
+
+\begin{figure}[h]
+    \begin{center}
+        \hspace{-3cm}
+        \includegraphics[scale = 0.5]{images/satisfaction}
+        \caption{Respondents' level of satisfaction with the existing system on a scale of 1 to 5}
     \end{center}
 \end{figure}
 
@@ -59,38 +65,16 @@ We believe one of the benefits of our proposed system is that we leverage local 
     \end{center}
 \end{figure}
 
-\clearpage
-
-\subsubsection{Level of satisfaction with existing system}
-
-We also sought to find out how satisfied our respondents were with the existing system. We found that the majority of our respondents were either not satisfied or fairly satisfied with the existing system, with a few being satisfied with it. This is expected since the existing system has a number of shortcomings which we have already highlighted.
+\subsubsection{Likelihood of using the proposed system}
+We also sought to find out how likely our respondents were to use the proposed system. We found that the majority of our respondents were very likely to use the proposed system, with a few being somewhat likely to use it. This is expected since the proposed system is expected to be more convenient than the existing system.
 
 \begin{figure}[h]
     \begin{center}
-        \hspace{-3cm}
-        \includegraphics[scale = 0.5]{images/satisfaction}
-        \caption{Respondents' level of satisfaction with the existing system on a scale of 1 to 5}
+        \hspace{-3.6cm}
+        \includegraphics[scale = 0.6]{images/likelihood}
+        \caption{Respondents' likelihood of using the proposed system}
     \end{center}
 \end{figure}
-
-\clearpage
-
-\subsubsection{Frequency of encountering challenges with the existing system}
-We also sought to find out how often our respondents experienced problems such as malfunction of the ticketing machine, difficulty finding the payment points. We found that the majority of our respondents experienced problems with the existing system occasionally, others frequently and a few never experienced problems with the existing system.
-
-\begin{figure}[h]
-    \begin{center}
-        \hspace{-3cm}
-        \includegraphics[scale = 0.6]{images/prob-freq}
-        \caption{Respondents' frequency of encountering problems with the existing system}
-    \end{center}
-\end{figure}
-
-\subsubsection{Opinion on the hefty fine for losing a ticket}
-The researchers also sought from the respondents their individual opinions on the hefty fine for losing a ticket. All respondents expressed dissatisfaction with the idea, justifying the need for a digital alternative of ticketing that avoid such scenarios.
-
-
-The interview guide used during the interview with the project manager as well as survery questions are attached in the appendix.
 \clearpage
 
 \subsection{Requirements Specification}
@@ -108,10 +92,11 @@ The users identified are gate attendants who can also double as administrators o
 \end{itemize}
 
 \subsubsection{Functional Requirements}
-This is to with the services that the system will provide to the users. The system will be able to:
+This is to do with the services that the system will provide to the users. The system will be able to:
 \begin{itemize}
     \item Allow new users(motorists) to register for the system
     \item Allow registered users to log in to the system
+    \item Allow exempt individuals to get access to the premises without payment
     \item Allow users to make payments for parking
     \item Allow users to view their payment history
     \item Allow users to view their parking history
@@ -133,7 +118,7 @@ This section defines the physical architectural design and the logical design (s
 \subsubsection{Architectural Design}
 An architecture diagram is a representation of elements that comprise a given system\cite{tilley2019systems}.
 
-The system will comprise a mobile application as well as remote server hosted on the cloud. The mobile application will be used by the motorists to make payments and view their payment history. The remote server will be used to store the data of the users and their payment history. The final component is the microcontroller which will be used to control the gates and communicate with the remote server.
+The system will comprise a mobile application as well as remote server hosted on the cloud. The mobile application will be used by the motorists to make payments and view their payment history. The remote server will be used to store the data of the users and their payment history. The final component is the microcontroller which will be used to control the gates and communicate with the remote server, guiding on when a user has began their journey within the premises, and flagging when it ends such that the server can make charges basing on time spent within the premises.
 
 For demonstration purposes, the system will be demonstrated using a microcontroller and a servo motor to demonstrate the logic of opening and closing of gates
 
@@ -147,11 +132,9 @@ For demonstration purposes, the system will be demonstrated using a microcontrol
 
 \clearpage
 
-\clearpage
-
 \subsubsection{Use case diagram}
-A use case diagram is a graphical representation of a given user's possible interactions with a system. It gives broad view of a system and the different types of users and use cases within that system \cite{alhir2003learning}.
-Below is a use case diagram for our proposed system
+A use case diagram is a graphical representation of a given user's possible interactions with a system. It gives broad view of a system and the different types of users and use cases within that system \cite{alhir2003learning}. Screenshots of the mobile applivation for this use case are also included in the presentation of results section.
+Below is a use case diagram for our proposed system:
 \begin{figure}[h]
     \begin{center}
         \hspace{-0.6cm}
@@ -178,7 +161,7 @@ An entity relationship diagram (ERD), also known as an entity relationship model
 The flow chart represents the dynamic behavior of the objects and classes that have been identified as part of the system. The flow chart helped us describe the plan in order to perform the different tasks. It showed what was done when the decision was made and when to go to each process as a result. The flow chart helped us build a step-by-step picture of the processes of our system.
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[scale = 0.6]{images/userflowdiagram}
+        \includegraphics[scale = 0.4]{images/userflowdiagram}
         \caption{System Architecture diagram for E-Tolls System}
     \end{center}
 \end{figure}

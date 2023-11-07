@@ -6,9 +6,14 @@ This chapter discusses the challenges encountered during the implementation of t
 The system currently does not account for some scenarios such as the following:
 \begin{itemize}
     \item Cases where there is no internet connection: This is especially as the ESP32 requires an internet conncetion to verify the payment status of the user.
+    \item Considering some categories of individuals are exempt from payment basing on their credentials, some users may misuse this and gain access without making payments, using credentials of exempt individuals.
     \item Non-smartphone users: The system currently only accounts for users with smartphones with iOS and Android Operating Systems. There is need to extend the system to also cater for non-smartphone users.
     \item The developed system is only limited to a demonstration stage, and no real-world implementation with real toll gate barriers and equipment has been done.
 \end{itemize}
+
+The application was also not deployed to any application stores as these require official paid accounts which the researchers were not in position to acquire due to financial constraints.
+
+Finally, implementation of the project was limited to a simple demonstration. Full implementation of the project would require using the ESP32 with a real toll gate barrier and other additional equipment which was outside the scope of the project but is a potential future work.
 
 Future works on the project can be done to handle the scenarios listed above. The project if built in a real world setting,  can also be scaled to various places such as malls and hospitals.
 
@@ -32,15 +37,18 @@ In conclusion, the research's primary objective was to a great extent. An initia
 \bibliography{references}
 \begin{appendices}
     The source code for the system and Latex files for this report can be found \href{https://github.com/Mnoble-19/final-year-project}\textbf{{here}}
-    \textbf{Interview Questions: Motorist}
-    \begin{itemize}
-        \item What are some of the challenges you have faced using Makerere's toll gates?
-        \item Describe the process of payment for toll fee at the ticket stations.
-        \item How frequently do you use the Makerere university gates?
-        \item Motorists who misplace their tickets are expected to pay a fine of 50,000 UGX. Have you ever misplaced your ticket? If yes, how did you resolve the issue? What are your thoughts on the fine?
-    \end{itemize}
+    \section*{Survey Questions: Motorists}
+    \begin{figure}[h]%
+        \hspace{-2cm}
+        \centering
+        \subfloat[\centering]{{\includegraphics[scale=0.37]{images/int1} }}%
+        \subfloat[\centering]{{\includegraphics[scale=0.33]{images/int2} }}%
+        \caption{Survey questions shared with respondents}%
+        \label{fig:interview questions}%
+    \end{figure}
 
-    \textbf{Interview Questions: Toll Operator}
+    \clearpage
+    \section*{Interview Questions: Toll Operator / Project Manager}
     \begin{itemize}
         \item What was the motivation behind putting in place this system?
         \item What challenges do you normally face when managing these gates?
@@ -48,10 +56,10 @@ In conclusion, the research's primary objective was to a great extent. An initia
         \item Do you believe cashless payments would ease your organisation's work?
     \end{itemize}
 
-
+    \cleaprage
     \begin{figure}
         \begin{center}
-            \includegraphics[scale = 0.3]{images/rizz.jpeg}
+            \includegraphics[scale = 0.3]{images/rizz}
             \caption{The researchers also conducted in person interviews with motorists and the project manager at the toll gate}
         \end{center}
     \end{figure}

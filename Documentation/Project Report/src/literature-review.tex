@@ -3,11 +3,11 @@ In this chapter we consider similar projects that have been done and how they re
 
 
 \section{Ubiquitous Computing approaches}
-The domain of ubiquitous computing according to Michael Friedewalda and Oliver Raabe is concerned with countless small, wirelessly intercommunicating microprocessors, embedded into objects. Such techniques are applied in similar concepts, such as ``the Internet of things''.The main motive in these domains is assisting people and optimizing economic and social processes through the use of microprocessors and sensors
+The domain of ubiquitous computing according to Michael Friedewalda and Oliver Raabe is concerned with countless small, wirelessly intercommunicating microprocessors, embedded into objects. Such techniques are applied in similar concepts, such as ``the Internet of things''.The main motive in these domains is assisting people and optimizing economic and social processes through the use of microprocessors and sensors.
 
 \begin{figure}[h]
     \begin{center}
-        \includegraphics[scale = 0.4]{images/ubq}
+        \includegraphics[scale = 0.34]{images/ubq}
         \caption{A sketch of a ubiquitous computing application}
     \end{center}
 \end{figure}
@@ -26,7 +26,7 @@ This concept has a number of real world applications in domains such as retail, 
 In this section looks at projects that have been done in the area of ubiquitous computing with an aim of addressing a challenge similar to ours. We also look at their shortcomings and how they're addressed in our project.
 
 \subsection{Use of RFID sensors}
-Another alternative approach that leverages ubiquitous computing is the use of an RFID system. This system has two main components:
+One approach that's based ubiquitous computing techniques is the use of an RFID system. This system has two main components:
 \begin{itemize}
     \item A transponder: This is the tag that holds information, found on the object to be identified
     \item A reader/interrogator: This device is able to capture data from the tag.It has a radio frequency module,  control unit and coupling element for linking to the transponder. Additionally, an interface is added to pass on data captured from the transponder to a different system
@@ -54,7 +54,7 @@ These two identified studies are constrained in our project scope\’s context, 
 \clearpage
 
 \subsection{Use of GPS Software and Cell Towers}
-Research on how this can be leveraged in easing toll fee payment has been done by others. In 2020, Danang Dismantoro, Istas Pratomo and Surya Sumpeno also proposed a mobile application that allowed payment of these fees via GPS software\cite{el-rabbany_introduction_2002,dismantoro_minimizing_2020}. The system was tested through simulations in Vissim software \cite{ptv_vissim_traffic_2022}, which they believe was able to simulate the real world condition at tollgates. Cell phone towers and GPS technology are used to identify the motorist’ s location and if the motorist happens to be within the toll’s gate vicinity, the money is automatically deducted from their personal account.
+Research on how this can be leveraged in easing toll & parking fee payment has been done by others. In 2020, Danang Dismantoro, Istas Pratomo and Surya Sumpeno also proposed a mobile application that allowed payment of these fees via GPS software\cite{el-rabbany_introduction_2002,dismantoro_minimizing_2020}. The system was tested through simulations in Vissim software \cite{ptv_vissim_traffic_2022}, which they believe was able to simulate the real world condition at tollgates. Cell phone towers and GPS technology are used to identify the motorist’ s location and if the motorist happens to be within the toll’s gate vicinity, the money is automatically deducted from their personal account.
 
 \subsubsection{Research Gaps}
 \begin{itemize}
@@ -62,6 +62,8 @@ Research on how this can be leveraged in easing toll fee payment has been done b
     \item The researchers acknowledge the need for a deeper feasibility study and the fact as it has some shortcomings.
     \item Some scenarios are unaccounted for such as if one is near a cell tower but does not necessarily intend to access the tollgate,they’ll have their money deducted even without actually using the gate.
 \end{itemize}
+
+\clearpage
 
 
 \section{Mobile Applications}
@@ -74,14 +76,16 @@ It offers various features and benefits for its users, such as making prepayment
 The project has had good traction since it was launched and in 2022 it generated 9.1 million dollars in revenue , with an average revenue per employee of 52,906 dollars. Parkmobile was acquired by EasyPark Group, a Swedish company that provides smart parking and mobility solutions, in June 2021.
 
 \subsection{FlowBird}
-The Flowbird parking app is a cloud-based platform developed in France that allows users to pay for parking in three simple steps and access different parking solutions to meet their personal needs.The app is one of many producsts of Flowbird Group, a global company that provides urban mobility solutions for cities and businesses in over ninety countries. This application provides features such as mobile-based payments, statistics of available parking places, etc\cite{Flowbird2023}.
+The Flowbird parking app is a cloud-based platform developed in France that allows users to pay for parking in three simple steps and access different parking solutions to meet their personal needs. It offers similar features to the ParkMobile application previously discussed such as mobile-based payments, statistics of available parking places, etc\cite{Flowbird2023}.
 
 \subsection{Research Gap}
 The main shortcoming of these applications is the fact that they were built and are currently only used in developed countries. As of this writing there exists no equivalent mobile application to enable parking and toll fee payments in Uganda. This is the gap that our project aims to address.
 
+\clearpage
+
 
 \section{Makerere University Automated Payment System}
-This is the existing system in place in our area of study. The project was commenced in 2014 by Makerere University in collaboration with Kenya Airport Parking Services\cite{wamai_mak_2014} .
+This is the existing system in place and was the main case study of our research. The project was commenced in 2014 by Makerere University in collaboration with Kenya Airport Parking Services\cite{wamai_mak_2014} .
 From our interviews with Mr. Twinomusinguzi Julius, the current manager of the existing system we learned that the system costs approximately 1.5 billion shillings to set up. It consists of a ticketing machine that issues tickets to motorists, as well as various payment points where payments are made and human labour to receive money, give change and manage the systems in case of breakdown. Some of the challenges in this system include:
 
 \begin{itemize}
@@ -91,6 +95,7 @@ From our interviews with Mr. Twinomusinguzi Julius, the current manager of the e
     \item Hefty fines for lost tickets as motorists who misplace their tickets are required to pay a fine of 50,000 Uganda Shillings. From our interviews we were informed that a high fee was set because with a lower fee, some motorists park for long periods and intentionally lose their tickets to pay a fine that's lower than their actual parking bill.
 \end{itemize}
 
+\clearpage
 
 \section{Uganda National Roads Authority Express Highway}
 \begin{figure}[h]
@@ -103,13 +108,13 @@ The Uganda National Roads Authority in 2022 launched the Kampala Entebbe Express
 
 The main gap with the approach is motorists often resort to only using the cash payments that result in delays and other issues because they find it easier than purchasing an UPESI card. Additionally, the process of loading money onto the card is unnecessarily long.
 
+\clearpage
 
 \section{Our Contribution}
-Alot of work has been done by other researchers to address the issue of digital payments for toll / parking fees. Many of these solutions leverage RFID technology as an alternative to the physical cash payments. This would however require purchasing costly scanners and tags, thus the need for a similar but cheaper solution.
+Alot of work has been done by other researchers to address the issue of digital payments for toll / parking fees. Many of these solutions leverage RFID technology as an alternative to the physical cash payments.This would however require purchasing costly scanners and tags, thus the need for a similar but cheaper solution. Additionally, the existing mobile applications meant to help address this issue are only available in developed countries, and as of this writing, no system has been developed in Uganda.
 The biggest benefits to our proposed system:
 \begin{itemize}
-    \item Developing a low-cost and context-specific solution for cashless parking payment using local popular payment platforms such as MTN mobile money. The payment platform used is Silicon Pay \cite{siliconpay} as it caters for the various telecom providers in Uganda such as MTN, Airtel, etc. We also use fairly affordable equipment particularly the ESP32 microcontroller as a replacement for the RFID scanners and tags. Other details of the system are discussed in the next section.
-    \item Designing and implementing a mobile app and an embedded microcontroller that interact using QR codes to facilitate parking access and payment. The mobile app is developed using the Flutter framework guaranteeing its accesibility to various mobile platforms i.e Android, iOS. . More details on this are discussed in the presentation of results section.
-    \item Evaluating the performance and usability of the system and comparing it with the current system of ticketing and payment. We were able to conduct interviews with not just users but managers of the system and make our own observations to better understand the current system, and its pitfalls
-    \item
+    \item Designing and implementing a cross platform mobile applicaton and an embedded microcontroller that interact using QR codes to facilitate parking access and payment. The mobile app is developed using the Flutter framework guaranteeing its accesibility to various mobile platforms i.e Android, iOS. More details on this are discussed in the presentation of results section.
+    \item Using low cost microcontrollers( ESP-32), we were able to program them with a camera module to be able to read and capture QR-code values, and interact with a server to verify motorists payments. This we believe is a cheaper alternative to use of RFID tags.
+    \item Leveraging all local payment platforms e.g MTN mobile money, Airtel Money thus various providers are all catered for.
 \end{itemize}

@@ -12,6 +12,9 @@
 \usepackage{subfig}
 \usepackage{hyperref}
 \graphicspath{{images/}}
+\hypersetup{
+    linkbordercolor={1 1 1} % this will make the boxes white
+}
 
 \begin{document}
     \begin{titlepage}
@@ -30,7 +33,7 @@
                 DEPARTMENT OF COMPUTER SCIENCE
             }}
             \vspace{0.5cm}
-            \\A Draft Project Report submitted to the School of Computing and Informatics Technology
+            \\A Project Report submitted to the School of Computing and Informatics Technology
             For the Study Leading to a Project Proposal in Partial Fulfillment of the
             Requirements for the Award of the Degree of Bachelor of Science in Computer Science
             Of Makerere University
@@ -42,7 +45,7 @@
             \vspace{0.2cm}
             \\School of Computing and Informatics Technology, Makerere University
             \\ggaliwango.marvin@mak.ac.ug, +256-754-655-524
-            \\June, 2023
+            \\July, 2023
         \end{center}
     \end{titlepage}
 
@@ -78,7 +81,7 @@
     \\Mr. Ggaliwango Marvin
     \\School of Computing and Informatics Technology, Makerere University
     \\ggaliwango.marvin@mak.ac.ug, +256-754-655-524
-    \\June, 2023
+    \\July, 2023
 
     \clearpage
     \section*{Dedication}
@@ -96,9 +99,9 @@
     We would also like to acknowledge the school for providing us with the invaluable opportunity to work as a cohesive team. This experience has not only fostered our teamwork spirit but has also enhanced our communication skills. Additionally, we extend our gratitude to each member of the group for their unwavering team spirit and solidarity, contributing to the overall success of the project.
 
     \begin{abstract}
-        The current system of ticketing and payment for parking at Makerere University in Kampala, Uganda, faces several challenges, such as frequent malfunction of the ticketing machines, fraud by the system employees, difficulty in locating a payment point for motorists, and hefty fines of 50000 Ugandan shillings for lost tickets. These challenges result in inconvenience, inefficiency, as well as revenue loss for both the system’s managers as well as motorists using it. To overcome these challenges, we propose a low-cost secure and reliable system that consists of a mobile app that enables cashless digital prepayment of the parking fees using local popular payment platforms such as MTN mobile money. The app interacts with an embedded microcontroller at the gate that scans the QR codes and the motorist access after it verifies their payment. We describe the design and implementation of the app and the microcontroller, and examine its benefits as well as shortcomings. We argue that our system offers a more convenient, efficient, and transparent way of managing toll payments not just in the university context, but other premises with a similar payment system in place.
+        The current system of ticketing and payment for parking at Makerere University in Kampala, Uganda, faces several challenges, such as frequent malfunction of the ticketing machines, fraud by the system employees, difficulty in locating a payment point for motorists, and hefty fines of 50000 Ugandan shillings for lost tickets. These challenges result in inconvenience, inefficiency, as well as revenue loss for both the system’s managers as well as motorists using it. To overcome these challenges, we propose a low-cost secure and reliable system that consists of a mobile app that enables cashless digital prepayment of the parking fees using local popular payment platforms such as MTN mobile money. The app interacts with an embedded microcontroller at the gate that scans the QR codes and grants the motorist access to the premises. When the motorist wishes to exit, their QR code is scanned again by a different microcontroller which interacts with the server to deduct the motorist's due fees basing on time spent and grant them permission to exit. We describe the design and implementation of the app and the microcontroller, and examine its benefits as well as shortcomings. We argue that our system offers a more convenient, efficient, and transparent way of managing toll payments not just in the university context, but other premises with a similar payment system in place.
 
-        \textbf{Keywords}: Intelligent Transportation Systems, Ubiquitous Computing, Mobile Based Payments, QR code based
+        \textbf{Keywords}: Intelligent Transportation Systems, Ubiquitous Computing, Mobile Based Payments, QR code technology
 
     \end{abstract}
 
