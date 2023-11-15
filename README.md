@@ -6,5 +6,6 @@ This repository contains source code for the E-Tolls final year project develope
 The repo contains 3 main folders
 *  Mobile
 *  Arduino code - for the embedded microcontroller
-*  Documentation - Latex source code for the final tehse
+*  Documentation - Latex source code for the final thesis
+
 
